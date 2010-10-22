@@ -1,0 +1,12 @@
+Py3AWS README
+
+Yu Yagi <yagi@yagi.sh>
+
+Py3AWS is a wrapper of Amazon Web Service for Python 3 forked from PyAWS.
+
+Changes from PyAWS are...
+* Modified the code for Python 3
+* Applied signature authorization
+* Correct AWS server domain for Japan
+
+This module is distributed in the same license as PyAWS.
