@@ -422,7 +422,7 @@ def buildRequest(argv):
     # Build URL
     url = 'http://%s/onca/xml?' % Meta.locales[getLocale()]
     url = url + '&'.join(['%s=%s' % (k,urllib.parse.quote(str(argv[k]))) for k in sorted(argv.keys()) if argv[k]]) 
-    parsed = urlparse(url)
+    parsed = urllib.parse.urlparse(url)
 
     # Generate signature
     req = 'GET\n%s\n%s\n%s' % (parsed.netloc, parsed.path, parsed.query)
@@ -448,7 +448,7 @@ def query(url):
     # u = urllib.request.FancyURLopener()
     # usock = u.open(url)
     usock = urllib.request.urlopen(url)
-    dom = xml.dom.parse(usock)
+    dom = minidom.parse(usock)
     usock.close()
 
     errors = dom.getElementsByTagName('Error')
@@ -496,7 +496,7 @@ def unmarshal(XMLSearch, arguments, element, plugins=None, rc=None):
     if(rc == None):
         rc = Bag()
     
-    childElements = [e for e in element.childNodes if isinstance(e, xml.dom.Element)]
+    childElements = [e for e in element.childNodes if isinstance(e, minidom.Element)]
 
     if childElements:
         for child in childElements:
@@ -506,7 +506,7 @@ def unmarshal(XMLSearch, arguments, element, plugins=None, rc=None):
                 if type(attr) != type([]):
                     setattr(rc, key, [attr])
                 setattr(rc, key, getattr(rc, key) + [unmarshal(XMLSearch, arguments, child, plugins)])
-            elif isinstance(child, xml.dom.Element):
+            elif isinstance(child, minidom.Element):
                 if child.tagName in plugins['isPivoted']:
                     unmarshal(XMLSearch, arguments, child, plugins, rc)
                     continue
