@@ -2,11 +2,11 @@ Metadata-Version: 1.0
 Name: py3aws
 Version: 0.0.1
 Summary: A Python 3 wrapper for Amazon Web Service
-Home-page: http://www.yagi.sh/
+Home-page: http://github.com/yagiyu/Py3AWS/
 Author: Yu Yagi
 Author-email: yagi@yagi.sh
 License: Python Software Foundation License
-Download-URL: http://www.yagi.sh/
+Download-URL: http://github.com/yagiyu/Py3AWS/tarball/master
 Description: Py3AWS is a Python3 wrapper for the latest Amazon Web Service. It is forked from PyAWS.
 Platform: OS Independent
 Classifier: Development Status :: 2 - Pre-Alpha
